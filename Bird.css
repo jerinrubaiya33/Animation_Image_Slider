@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Danfo&family=Jacquard+12&family=Jaro:opsz@6..72&family=Poetsen+One&family=Sora:wght@100..800&display=swap');
+body{
+    font-family: "Jaro", sans-serif;
+    background-color: bisque;
+}
+.container{
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1000px;
+    height: 600px;
+    overflow: hidden;
+}
+.header{
+    position: absolute;
+    color: rgb(255, 255, 255) ;
+    width: 100%;
+    margin: 10px 30px;
+    z-index: 212112;
+}
+.logo{
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    display: inline-block;
+}
+.header ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+    transform: translate(0,-14px);
+}
+.header ul li{
+    display: inline-block;
+    font-size: 13px;
+    margin-left: 20px;
+}
+#bird{
+    position: absolute;
+    z-index: 11111111;
+    right: 50%;
+    bottom: 25%;
+    transition: 1.5s;
+    transform: rotateX(192deg) rotate(-40deg);
+}
+#bird img{
+    width: 350px;
+    animation: bird 1s ease-in-out infinite alternate;
+}
+@keyframes bird{
+    0%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    display: none;
+}
+.item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover ;
+    opacity: 0.3;
+}
+.item .content{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding:20px 40px 30px 0;
+    color:white;
+}
+.item h2{
+    font-family:'Sora' ;
+    font-size: 30px;
+}
+.item .content1{
+    margin-top: 30px ;
+    padding: 0;
+}
+.item .button{
+    margin: 30px 0;
+    border: 1px solid beige;
+    width: max-content;
+    padding: 10px 20px;
+    transition: 0.7s;
+    border-radius: 7px;
+}
+.item .button:hover{
+    background-color: rgb(10, 37, 10);
+    color: white;
+} 
+.active, .hide{
+    display: block;
+}
+.active{
+    z-index: 1111;
+}
+.active img{
+    animation: showing 1s ease-in-out 1 forwards;
+}
+.hide img{
+    animation: hideing 1s ease-in-out 1 forwards;
+}
+@keyframes showing{
+    0%{
+        transform: translate(100%,0);
+    } 100%{
+        transform: translate(0,0);
+    }
+}
+@keyframes hideing{
+    0%{
+        transform: translate(0,0);
+    } 100%{
+        transform: translate(-100%,0);
+    }
+}
+.active .content h2{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1s 1 forwards
+}
+.active .content1{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1.2s 1 forwards
+}
+.active .button{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1.4s 1 forwards
+}
+@keyframes showcontent{
+    0%{
+        filter: blur(33px);
+        transform: translate(100%,0);
+    } 100%{
+        opacity: 1;
+        filter: blur(0px);
+        transform: translate(0,0);
+    }
+}
+.hide h2,
+.hide .content,
+.hide .button{
+    animation: hidecontent 1.7s ease-in-out 1 forwards;
+}
+@keyframes hidecontent{
+    0%{
+        filter: blur(0px);
+        transform: translate(0,0);
+    } 100%{
+        opacity: 0;
+        filter: blur(33px);
+        transform: translate(-100%,0);
+    }
+}
+.start #bird{
+    animation: startbird 3s ease-in-out 1 forwards;
+}
+@keyframes startbird{
+    0%{
+    
+    } 50%{
+        right: 31%;
+        bottom: 16%;
+        transform: rotateY(192deg) rotate(-92deg);
+    } 100%{
+        right: 50%;
+        bottom: 25%;
+        transform: rotateX(192deg) rotate(-40deg);
+    }
+}
+#next{
+    position: absolute;
+    z-index: 111111111111111;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    border: none;
+    background-color: rgb(0, 48, 0);
+    transition: 0.5s;
+    color: white;
+    border-radius: 20px;
+}
+#next:hover{
+    background-color: goldenrod;
+    color: white;
+}
+.start::before{
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    content: '';
+    background-color: orangered;
+    z-index: 11111111;
+    animation: time 3s ease-in-out 1 forwards;
+}
+@keyframes time{
+    from{
+        width: 0;
+    } to{
+        width: 100%;
+    }
+}
